@@ -1,13 +1,13 @@
-package br.com.link.payment.payment_webhook_notify;
+package br.com.link.payment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PaymentWebhookNotifyApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PaymentWebhookNotifyApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

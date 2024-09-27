@@ -1,4 +1,4 @@
-package br.com.link.payment.payment_webhook_notify;
+package br.com.link.payment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
