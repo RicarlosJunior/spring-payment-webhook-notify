@@ -75,15 +75,19 @@ public class NotificationController {
 	public ResponseEntity<TransactionCompletionNotificationPOST> transactionCompletionPOST(HttpServletRequest request) {
         Map<String, String> params = new HashMap<>();
         
-        // Extrai os parâmetros do request
+    
         request.getParameterMap().forEach((key, value) -> {
-            params.put(key, value[0]); // Pega o primeiro valor do array
+            params.put(key, value[0]);
         });
 
-        // Exibe os parâmetros no console
-        System.out.println("Notificação recebida: " + params);
+        
+        System.out.println("Notificacao recebida");
+        System.out.println("****************************************");
+        params.forEach((key, value) -> {
+            System.out.println(key + ": " + value);
+        });
 
-        return ResponseEntity.ok().build(); // Retorna 200 OK
+        return ResponseEntity.ok().build(); 
     }
 	
 	
@@ -91,30 +95,35 @@ public class NotificationController {
 	public ResponseEntity<TransactionCompletionNotificationJSON> transactionCompletionJSON(HttpServletRequest request) {
         Map<String, String> params = new HashMap<>();
         
-        // Extrai os parâmetros do request
+        
         request.getParameterMap().forEach((key, value) -> {
-            params.put(key, value[0]); // Pega o primeiro valor do array
+            params.put(key, value[0]);
         });
 
-        // Exibe os parâmetros no console
-        System.out.println("Notificação recebida: " + params);
+        System.out.println("Notificacao recebida");
+        System.out.println("****************************************");
+        params.forEach((key, value) -> {
+            System.out.println(key + ": " + value);
+        });
 
-        return ResponseEntity.ok().build(); // Retorna 200 OK
+        return ResponseEntity.ok().build(); 
     }
 	
 	@PostMapping("/status/change")
 	public ResponseEntity<TransactionCompletionNotificationJSON> statusChange(HttpServletRequest request) {
         Map<String, String> params = new HashMap<>();
-        
-        // Extrai os parâmetros do request
+       
         request.getParameterMap().forEach((key, value) -> {
-            params.put(key, value[0]); // Pega o primeiro valor do array
+            params.put(key, value[0]);
         });
 
-        // Exibe os parâmetros no console
-        System.out.println("Notificação recebida: " + params);
+        System.out.println("Notificacao recebida");
+        System.out.println("****************************************");
+        params.forEach((key, value) -> {
+            System.out.println(key + ": " + value);
+        });
 
-        return ResponseEntity.ok().build(); // Retorna 200 OK
+        return ResponseEntity.ok().build();
     }
 	
 	
