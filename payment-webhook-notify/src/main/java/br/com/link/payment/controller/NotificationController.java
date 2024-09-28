@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import br.com.link.payment.dto.TransactionCompletionNotificationJSON;
 import br.com.link.payment.dto.TransactionCompletionNotificationPOST;
 import jakarta.servlet.http.HttpServletRequest;
@@ -72,7 +75,7 @@ public class NotificationController {
 	
 	
 	@PostMapping("/transaction/post")
-	public ResponseEntity<TransactionCompletionNotificationPOST> transactionCompletionPOST(HttpServletRequest request) {
+	public ResponseEntity<TransactionCompletionNotificationPOST> transactionCompletionPOST(HttpServletRequest request) throws JsonProcessingException {
         Map<String, String> params = new HashMap<>();
         
     
@@ -81,18 +84,18 @@ public class NotificationController {
         });
 
         
-        System.out.println("Notificacao recebida");
+        System.out.println("Notificacao recebida transactionCompletionPOST");
         System.out.println("****************************************");
-        params.forEach((key, value) -> {
-            System.out.println(key + ": " + value);
-        });
+        ObjectMapper objectMapper = new ObjectMapper();
+		String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(params);
+		System.out.println(json);
 
         return ResponseEntity.ok().build(); 
     }
 	
 	
 	@PostMapping("/transaction/json")
-	public ResponseEntity<TransactionCompletionNotificationJSON> transactionCompletionJSON(HttpServletRequest request) {
+	public ResponseEntity<TransactionCompletionNotificationJSON> transactionCompletionJSON(HttpServletRequest request) throws JsonProcessingException {
         Map<String, String> params = new HashMap<>();
         
         
@@ -100,28 +103,28 @@ public class NotificationController {
             params.put(key, value[0]);
         });
 
-        System.out.println("Notificacao recebida");
+        System.out.println("Notificacao recebida transactionCompletionJSON");
         System.out.println("****************************************");
-        params.forEach((key, value) -> {
-            System.out.println(key + ": " + value);
-        });
+        ObjectMapper objectMapper = new ObjectMapper();
+		String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(params);
+		System.out.println(json);
 
         return ResponseEntity.ok().build(); 
     }
 	
 	@PostMapping("/status/change")
-	public ResponseEntity<TransactionCompletionNotificationJSON> statusChange(HttpServletRequest request) {
+	public ResponseEntity<TransactionCompletionNotificationJSON> statusChange(HttpServletRequest request) throws JsonProcessingException {
         Map<String, String> params = new HashMap<>();
        
         request.getParameterMap().forEach((key, value) -> {
             params.put(key, value[0]);
         });
 
-        System.out.println("Notificacao recebida");
+        System.out.println("Notificacao recebida statusChange");
         System.out.println("****************************************");
-        params.forEach((key, value) -> {
-            System.out.println(key + ": " + value);
-        });
+        ObjectMapper objectMapper = new ObjectMapper();
+		String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(params);
+		System.out.println(json);
 
         return ResponseEntity.ok().build();
     }
