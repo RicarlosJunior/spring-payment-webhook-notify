@@ -23,9 +23,6 @@ public class NotificationController {
 	@PostMapping("/transaction/post")
 	public ResponseEntity<TransactionCompletionNotificationPOST> transactionCompletionPOST(@RequestBody TransactionCompletionNotificationPOST dto) {
         try {
-        	System.out.println("Chamou recurso: transactionCompletionPOST ");
-        	System.out.println("**************************************** ");
-        	
         	ObjectMapper objectMapper = new ObjectMapper();
 			String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dto);
 			System.out.println(json);
@@ -39,8 +36,6 @@ public class NotificationController {
 	@PostMapping("/transaction/json")
 	public ResponseEntity<TransactionCompletionNotificationJSON> transactionCompletionJSON(@RequestBody TransactionCompletionNotificationJSON dto) {
 		try {
-			System.out.println("Chamou recurso: transactionCompletionJSON ");
-        	System.out.println("**************************************** ");
 			
             ObjectMapper objectMapper = new ObjectMapper();
 			String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dto);
@@ -55,9 +50,7 @@ public class NotificationController {
 	@PostMapping("/status/change")
 	public ResponseEntity<TransactionCompletionNotificationJSON> statusChange(@RequestBody TransactionCompletionNotificationJSON dto) {
 		try {
-			System.out.println("Chamou recurso: statusChange ");
-        	System.out.println("**************************************** ");
-			
+		
             ObjectMapper objectMapper = new ObjectMapper();
 			String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dto);
 			System.out.println(json);
@@ -80,9 +73,7 @@ public class NotificationController {
             params.put(key, value[0]);
         });
 
-        
-        System.out.println("Notificacao recebida transactionCompletionPOST");
-        System.out.println("****************************************");
+
         params.forEach((key, value) -> {
             System.out.println(key + ": " + value);
         });
@@ -100,8 +91,6 @@ public class NotificationController {
             params.put(key, value[0]);
         });
 
-        System.out.println("Notificacao recebida transactionCompletionJSON");
-        System.out.println("****************************************");
         params.forEach((key, value) -> {
             System.out.println(key + ": " + value);
         });
@@ -117,16 +106,11 @@ public class NotificationController {
             params.put(key, value[0]);
         });
 
-        System.out.println("Notificacao recebida statusChange");
-        System.out.println("****************************************");
         params.forEach((key, value) -> {
             System.out.println(key + ": " + value);
         });
 
         return ResponseEntity.ok().build();
     }
-	
-	
-	
-	
+
 }
